@@ -17,8 +17,6 @@ const CustomAutocomplete = forwardRef(
     ref: any
   ) => {
     return (
-      // eslint-disable-next-line lines-around-comment
-      // @ts-expect-error - AutocompleteProps is not compatible with PaperProps
       <Autocomplete
         {...props}
         ref={ref}
