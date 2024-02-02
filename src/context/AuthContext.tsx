@@ -21,7 +21,8 @@ const defaultProvider: AuthValuesType = {
   setLoading: () => Boolean,
   login: () => Promise.resolve(),
   logout: () => Promise.resolve(),
-  register: () => Promise.resolve()
+
+  // register: () => Promise.resolve()
 }
 
 const AuthContext = createContext(defaultProvider)
@@ -72,19 +73,19 @@ const AuthProvider = ({ children }: Props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const handleRegister = (params: RegisterParams, errorCallback?: ErrorCallback) => {
-    console.log("==================", params)
-    axios
-      .post(authConfig.registerEndpoint, params)
-      .then(async response => {
-        setUser({ ...response.data.userData })
-        router.replace("/login")
-      })
+  // const handleRegister = (params: RegisterParams, errorCallback?: ErrorCallback) => {
+  //   console.log("==================", params)
+  //   axios
+  //     .post(authConfig.registerEndpoint, params)
+  //     .then(async response => {
+  //       setUser({ ...response.data.userData })
+  //       router.replace("/login")
+  //     })
 
-      .catch(err => {
-        if (errorCallback) errorCallback(err)
-      })
-  }
+  //     .catch(err => {
+  //       if (errorCallback) errorCallback(err)
+  //     })
+  // }
 
   const handleLogin = (params: LoginParams, errorCallback?: ErrCallbackType) => {
     axios
@@ -121,7 +122,9 @@ const AuthProvider = ({ children }: Props) => {
     setUser,
     setLoading,
     login: handleLogin,
-    register: handleRegister,
+
+    // register: handleRegister,
+    
     logout: handleLogout
   }
 
