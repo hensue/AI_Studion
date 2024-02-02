@@ -117,47 +117,6 @@ const UserList = () => {
       shipping_address: shipping_address
     }
     dispatch(addUser(params))
-    // fetch("/api/users", {
-    //   method: "POST",
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   },
-    //   body: JSON.stringify({
-    //     first_name: firstname,
-    //     last_name: lastname,
-    //     username: username,
-    //     billing_email: billing_email,
-    //     status: status,
-    //     tax_id: tax_id,
-    //     contact: phone_number,
-    //     languages: languages,
-    //     country: country,
-    //     shipping_address: shipping_address
-    //   })
-    // }).then( async response => {
-    //   const res_data = await response.json()
-    //   if(response.status === 200) {
-    //     setNotification({
-    //       type: "success",
-    //       message: "User is created successfully."
-    //     })
-    //     setShowAlert(true)
-    //     setShow(false)
-    //   } else {
-    //     setNotification({
-    //       type: "error",
-    //       message: res_data.message
-    //     })
-    //     setShowAlert(true)  
-    //   }
-      
-    // }).catch(error => {
-    //   setNotification({
-    //     type: "error",
-    //     message: "User creating is failed. "
-    //   })
-    //   setShowAlert(true)
-    // })
   }
   const onChangeState = React.useCallback(
     (key: keyof typeof state, value: string) => {

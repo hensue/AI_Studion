@@ -75,6 +75,7 @@ const CustomAccountRolesScreen = ({openModal, setShowModal}) => {
   }
   useEffect(() => {
     dispatch(fetchData({q: ""}))
+    setDialogTitle("Add")
   }, [dispatch])
   useEffect(()=>{
     if(roleName === "" || selectedCheckbox.length === 0){
@@ -95,6 +96,7 @@ const CustomAccountRolesScreen = ({openModal, setShowModal}) => {
   
   }
   const handleSubmit = (event: any) => {
+    console.log(event.target)
     if(!validation_check(role.allData)) {
       setShowAlert(true);
     } else {
@@ -150,11 +152,13 @@ const CustomAccountRolesScreen = ({openModal, setShowModal}) => {
               role?.allData.map( (item: any) => {
                 return (
                   <TableRow
+                    key={`${item.rolename}`}
                     sx={{
                       '&:last-of-type td, &:last-of-type th': {
                         border: 0
                       }
                     }}
+                  
                   >
                     <TableCell component='th' scope='row'>
                       { item.roleName }

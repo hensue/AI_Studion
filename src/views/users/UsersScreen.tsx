@@ -122,8 +122,6 @@ const columns: GridColDef[] = [
           rounded
           size='small'
           skin='light'
-          // color={status.color}
-          // label={status.title}
           sx={{ '& .MuiChip-label': { textTransform: 'capitalize' } }}
         />
       )
@@ -206,6 +204,7 @@ const UsersScreen = (props: any) => {
   }
   const users = useSelector((state: any) => {
     console.log(state)
+    
     return state.user.data})
   
   return (

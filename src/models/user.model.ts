@@ -6,7 +6,6 @@ mongoose.connect("mongodb://127.0.0.1:27017/aistudio")
 const UserSchema = new Schema({
     fullName: {
         type: String,
-        // required: true
     },
     username: {
         type: String,
@@ -22,32 +21,25 @@ const UserSchema = new Schema({
     },
     _salt: {
         type: String,
-        // required: true
     },
     company: {
         type: String,
-        // required: true
     },
     country:{
         type: String,
-        // required: true
     },
     contact: {
         type: Number,
-        // required: true,
         default: 0
     },
     billing: {
         type: String,
-        // required: true
     },
     role: {
         type: String,
-        // required: true
     },
     currentPlan: {
         type: String, 
-        // required: true
     },
     avatar: {
         type: String,
@@ -58,22 +50,18 @@ const UserSchema = new Schema({
     },
     language: {
         type: Array<string>,
-        // required: true,
         default: [ "English" ]
     },
     status: {
         type: String,
-        // required: true,
         default: "pending"
     },
     start_date: {
         type: Date,
-        // required: true,
         default: Date.now()
     },
     last_login: {
         type: Date,
-        // required: true,
         default: Date.now()
     },
     shipping_address: {

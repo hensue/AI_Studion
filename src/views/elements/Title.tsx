@@ -5,7 +5,7 @@ import Icon from 'src/@core/components/icon'
 type TitleProps = {
   heading: string
   paragraph?: string
-  openModal?: Function
+  openModal?: any
 }
 
 const Title = ({ heading, paragraph, openModal }: TitleProps) => {
