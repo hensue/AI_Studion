@@ -9,22 +9,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     res.status(200).json(data);
   }else if( req.method === "POST") {
     const {q, role, status, currentPlan} = req.body.params;
-    const query = {
-        $and:[
-            {
-                username: { $regex: q }
-            },
-            {
-                role: { $regex: role }
-            },
-            {
-                status: { $regex: status }
-            },
-            {
-                currentPlan: { $regex: currentPlan }
-            }
-        ]
-    }
     try{
         const allUsers = await User.find({});
         const users = await User.find({ fullName: { $regex: q}});

@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import jwt from "jsonwebtoken"
 import User from "src/models/user.model"
+
 // ! These two secrets should be in .env file and not in any other file
 const jwtConfig = {
   secret: process.env.NEXT_PUBLIC_JWT_SECRET,
@@ -11,7 +12,7 @@ const jwtConfig = {
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   // Handle the API request and response
 
-  let error = {
+  const error = {
     email: ['Something went wrong']
   }
 

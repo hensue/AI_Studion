@@ -21,6 +21,7 @@ const UserView = ({ tab, user_id, invoiceData }: InferGetStaticPropsType<typeof 
 }
 
 export const getStaticPaths: GetStaticPaths = () => {
+  
   return {
     paths: [
       { params: { tab: 'account', id: "65b33c181368f1a3d4011205" } },
@@ -36,6 +37,7 @@ export const getStaticPaths: GetStaticPaths = () => {
 export const getStaticProps: GetStaticProps = async ({ params }: GetStaticPropsContext) => {
   const res = await axios.get('/apps/invoice/invoices')
   const invoiceData: InvoiceType[] = res.data.allData
+
   return {
     props: {
       invoiceData,

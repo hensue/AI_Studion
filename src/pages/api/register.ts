@@ -17,8 +17,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     console.log(req.body)
     try{
       const { email, username, password } = req.body;
-      let emailAlreadyUse = await User.find({ email: email })
-      let usernameAlreadyUse = await User.find({ username: username })
+      const emailAlreadyUse = await User.find({ email: email })
+      const usernameAlreadyUse = await User.find({ username: username })
       const error = {
         email: emailAlreadyUse.length > 0 ? 'This email is already in use.' : null,
         username: usernameAlreadyUse.length > 0 ? 'This username is already in use.': null
@@ -32,14 +32,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         const savedUser = await user.save()
         if(savedUser) {
           const token = jwt.sign({ id: savedUser._id.toString() }, jwtConfig.secret as string);
-          const userData = {
-            id: savedUser._id.toString(),
-            username: savedUser.username,
-            email: savedUser.email,
-            firstName: savedUser.firstName,
-            avatar: savedUser.avatar,
-            role: savedUser.role
-          }
           res.status(200).json({
               accessToken: token
           });

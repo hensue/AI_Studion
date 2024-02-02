@@ -14,7 +14,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   if(req.method === 'GET'){
     const token = req.headers['Authorization']
-    jwt.verify(token, jwtConfig.secret as string, async (err: any, decoded: any) => {
+    jwt.verify(token, jwtConfig.secret as string, async (err: any) => {
       if (err) {
         if (defaultAuthConfig.onTokenExpiration === 'logout') {
           // ** 401 response will logout user from AuthContext file

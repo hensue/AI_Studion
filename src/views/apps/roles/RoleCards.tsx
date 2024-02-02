@@ -33,6 +33,7 @@ import Alert from '@mui/material/Alert';
 import { addRole, fetchData, editRole } from "src/store/apps/role/index";
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
+
 // ** Icon Imports
 import Icon from 'src/@core/components/icon'
 
@@ -64,10 +65,11 @@ const RolesCards = () => {
   const dispatch = useDispatch()
   const role = useSelector((state: any) => state.role)
   const user = useSelector((state: any) => state.user)
-  const [selectedRole, setSelectedRole] = useState<any>({});
+
   const generate_card_data = (roles: [], users: []) => {
     return roles.map((role: any) => {
-      let roleUsers = users.filter((item: any) => item.role === role.roleName)
+      const roleUsers = users.filter((item: any) => item.role === role.roleName)
+
       return {
         id: role._id,
         totalUsers: roleUsers.length,
@@ -99,10 +101,11 @@ const RolesCards = () => {
   }
 
   const handleSubmit = (event: any) => {
-    
+      console.log(event)
       if(dialogTitle === "Add"){
         if(!validation_check(role.allData)) {
           setShowAlert(true);
+          
           return
         }
         dispatch(addRole({
@@ -192,12 +195,8 @@ const RolesCards = () => {
                   onClick={e => {
                     e.preventDefault()
                     handleClickOpen()
-                    setSelectedRole(item)
                     setRoleName(item.title)
                     setSelectedCheckbox(item.permission)
-                    // if(item.permission.length === 27){
-                    //   setIsIndeterminateCheckbox(true);
-                    // }
                     setDialogTitle('Edit')
                   }}
                 >

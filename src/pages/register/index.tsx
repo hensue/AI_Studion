@@ -33,8 +33,10 @@ import Image from 'next/image'
 import * as yup from 'yup'
 import { useForm, Controller } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
+
 // ** Hooks
 import { useAuth } from 'src/hooks/useAuth'
+
 // ** Styled Components
 
 interface FormData {
@@ -106,6 +108,7 @@ const Register = () => {
       })
     })
   }
+
   // ** States
   const [showPassword, setShowPassword] = useState<boolean>(false)
 
@@ -191,7 +194,10 @@ const Register = () => {
                               <IconButton
                                 edge='end'
                                 onMouseDown={e => e.preventDefault()}
-                                onClick={() => setShowPassword(!showPassword)}
+                                onClick={() => {
+                                  console.log(value)
+                                  setShowPassword(!showPassword)
+                                }}
                               >
                                 <Icon fontSize='1.25rem' icon={showPassword ? 'tabler:eye' : 'tabler:eye-off'} />
                               </IconButton>
@@ -213,7 +219,7 @@ const Register = () => {
                         label={
                           <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
                             <Typography sx={{ color: 'text.secondary' }}>I agree to</Typography>
-                            <Typography component={LinkStyled} href='/' onClick={e => e.preventDefault()} sx={{ ml: 1 }}>
+                            <Typography component={LinkStyled} href='/' onClick={e => {e.preventDefault(); console.log(value)}} sx={{ ml: 1 }}>
                               privacy policy & terms
                             </Typography>
                           </Box>

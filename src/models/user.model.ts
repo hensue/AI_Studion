@@ -1,5 +1,6 @@
 import mongoose, { Schema } from "mongoose"
 import bcrypt from "bcrypt"
+
 mongoose.connect("mongodb://127.0.0.1:27017/aistudio")
 
 const UserSchema = new Schema({
@@ -56,7 +57,7 @@ const UserSchema = new Schema({
         type: String,
     },
     language: {
-        type: Array<String>,
+        type: Array<string>,
         // required: true,
         default: [ "English" ]
     },
