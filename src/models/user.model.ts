@@ -70,23 +70,23 @@ const UserSchema = new Schema({
     }
 
 })
-UserSchema.virtual("id").get(function(){
-    return this._id.toString();
-})
-UserSchema.pre('save', async function(next) {
-    this._salt = await bcrypt.genSalt(10);
-    this.password = bcrypt.hashSync(this.password, this._salt)
+// UserSchema.virtual("id").get(function(){
+//     return this._id.toString();
+// })
+// UserSchema.pre('save', async function(next) {
+//     this._salt = await bcrypt.genSalt(10);
+//     this.password = bcrypt.hashSync(this.password, this._salt)
 
-    next()
-})
-UserSchema.method('comparePassword', async function(currentPassword: string) {
-  if (this._salt === undefined) {
-    // Handle the case where _salt is undefined
-    throw new Error('Salt is undefined');
-  }
+//     next()
+// })
+// UserSchema.method('comparePassword', async function(currentPassword: string) {
+//   if (this._salt === undefined) {
+//     // Handle the case where _salt is undefined
+//     throw new Error('Salt is undefined');
+//   }
 
-  const password = bcrypt.hashSync(currentPassword, this._salt);
+//   const password = bcrypt.hashSync(currentPassword, this._salt);
 
-  return password === this.password;
-});
+//   return password === this.password;
+// });
 export default mongoose.models.User || mongoose.model("User", UserSchema, "users")
