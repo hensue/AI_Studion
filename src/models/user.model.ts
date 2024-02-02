@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose"
-import bcrypt from "bcrypt"
+// import bcrypt from "bcrypt"
 
 mongoose.connect("mongodb+srv://StartupSphere:Freelancer123-@startupsphere.gr5qamc.mongodb.net");
 
