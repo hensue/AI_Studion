@@ -81,6 +81,7 @@ UserSchema.pre('save', async function(next) {
 })
 UserSchema.method('comparePassword', async function(currentPassword: string) {
     const password = bcrypt.hashSync(currentPassword, this._salt);
+    
     return password === this.password;
 })
 export default mongoose.models.User || mongoose.model("User", UserSchema, "users")

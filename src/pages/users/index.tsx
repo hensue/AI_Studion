@@ -143,6 +143,7 @@ const UserList = () => {
       setShowAlert(true) 
     }
   },[error])
+  
   useEffect(()=>{
     const params = {
       q: q,
@@ -151,9 +152,8 @@ const UserList = () => {
       currentPlan: "",
     }
     dispatch(fetchData(params))
-  }, [q])
-  // USERS
-  // CUSTOM ACCOUNT ROLES
+  }, [q]);
+
 
   return (
     <React.Fragment>
