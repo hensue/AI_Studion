@@ -1,7 +1,8 @@
 import mongoose, { Schema } from "mongoose"
 import bcrypt from "bcrypt"
 
-mongoose.connect("mongodb://127.0.0.1:27017/aistudio")
+mongoose.connect(""mongodb+srv://StartupSphere:Freelancer123-@startupsphere.gr5qamc.mongodb.net"
+")
 
 const UserSchema = new Schema({
     fullName: {
