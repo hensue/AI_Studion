@@ -11,7 +11,7 @@ import axios from 'axios'
 import authConfig from 'src/configs/auth'
 
 // ** Types
-import { AuthValuesType, LoginParams, ErrCallbackType, UserDataType, RegisterParams } from './types'
+import { AuthValuesType, LoginParams, ErrCallbackType, UserDataType } from './types'
 
 // ** Defaults
 const defaultProvider: AuthValuesType = {
@@ -124,7 +124,7 @@ const AuthProvider = ({ children }: Props) => {
     login: handleLogin,
 
     // register: handleRegister,
-    
+
     logout: handleLogout
   }
 
